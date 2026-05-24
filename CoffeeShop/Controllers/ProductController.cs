@@ -14,5 +14,14 @@ namespace CoffeeShop.Controllers
         {
             return View(ProductRepository.GetAllProducts());
         }
+        public IActionResult Detail(int id)
+        {
+            var product = ProductRepository.GetProductDetail(id);
+            if(product != null)
+            {
+                return View(product);
+            }
+            return NotFound();
+        }
     }
 }

@@ -62,7 +62,7 @@ namespace CoffeeShop.Migrations
                         {
                             Id = 2,
                             Detail = "Vietnamese product",
-                            ImgUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee1024x536.webp",
+                            ImgUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee-1024x536.webp",
                             IsTrendingProduct = false,
                             Name = "Vietnam",
                             Price = 20m
@@ -71,7 +71,7 @@ namespace CoffeeShop.Migrations
                         {
                             Id = 3,
                             Detail = "UK product",
-                            ImgUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee1024x536.webp",
+                            ImgUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee-1024x536.webp",
                             IsTrendingProduct = false,
                             Name = "United Kingdom",
                             Price = 15m
@@ -98,7 +98,7 @@ namespace CoffeeShop.Migrations
                         {
                             Id = 6,
                             Detail = "France product",
-                            ImgUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee1024x536.webp",
+                            ImgUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee-1024x536.webp",
                             IsTrendingProduct = false,
                             Name = "France",
                             Price = 35m
