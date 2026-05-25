@@ -13,6 +13,7 @@ public class CoffeeShopDbContext : DbContext
     {
     }
     public DbSet<Product> Products { get; set; }
+    public DbSet<ShoppingCartItem> ShoppingCartItem { get; set; }
     //seed data
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
