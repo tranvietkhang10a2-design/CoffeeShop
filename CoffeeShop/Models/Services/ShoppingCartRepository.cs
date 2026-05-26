@@ -15,13 +15,11 @@ namespace CoffeeShop.Models.Services
         }
         public List<ShoppingCartItem>? ShoppingCartItems { get; set; }
         public string? ShoppingCartId { set; get; }
-        //Get Cart
+
         public static ShoppingCartRepository GetCart(IServiceProvider services)
         {
-            ISession? session =
-           services.GetRequiredService<IHttpContextAccessor>()?.HttpContext?.Session;
-            CoffeeShopDbContext context = services.GetService<CoffeeShopDbContext>() ?? throw new
-           Exception("Error initializing coffeeshopdbcontext");
+            ISession? session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext?.Session;
+            CoffeeShopDbContext context = services.GetService<CoffeeShopDbContext>() ?? throw new Exception("Error initializing CoffeeShopDbContext");
             string cartId = session?.GetString("CartId") ?? Guid.NewGuid().ToString();
             session?.SetString("CartId", cartId);
             return new ShoppingCartRepository(context) { ShoppingCartId = cartId };
@@ -57,13 +55,11 @@ namespace CoffeeShop.Models.Services
         }
         public List<ShoppingCartItem> GetAllShoppingCartItems()
         {
-            return ShoppingCartItems ??= dbContext.ShoppingCartItem.Where(s =>
-           s.ShoppingCartId == ShoppingCartId).Include(p => p.Product).ToList();
+            return ShoppingCartItems ??= dbContext.ShoppingCartItem.Where(s => s.ShoppingCartId == ShoppingCartId).Include(p => p.Product).ToList();
         }
         public decimal GetShoppingCartTotal()
         {
-            var totalCost = dbContext.ShoppingCartItem.Where(s => s.ShoppingCartId ==
-           ShoppingCartId)
+            var totalCost = dbContext.ShoppingCartItem.Where(s => s.ShoppingCartId == ShoppingCartId)
             .Select(s => s.Product.Price * s.Qty).Sum();
             return totalCost;
         }

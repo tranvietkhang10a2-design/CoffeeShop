@@ -1,4 +1,5 @@
-﻿<div class="row mt-4">
+﻿@model IEnumerable<CoffeeShop.Models.Domain.Product>
+<div class="row mt-4">
 	@foreach (var item in Model)
 	{
 		<div class="item features-image сol-12 col-md-6 col-lg-4">
@@ -7,12 +8,12 @@
 					<img src="@item.ImgUrl" alt="Coffee Shop" title="">
 				</div>
 				<div class="item-content">
-					<a asp-controller="Products" asp-action="Detail" asp-route-id="@item.Id"
+					<a asp-controller="Product" asp-action="Detail" asp-route-id="@item.Id"
 					   target="_self"><h6 class="item-subtitle mbr-fonts-style mt-1 display7"><strong>@item.Name</strong></h6></a>
 					<p class="mbr-text mbr-fonts-style mt-3 display7">@item.Price.ToString("C")</p>
 				</div>
 				<div class="mbr-section-btn item-footer mt-2">
-					<a href="" class="btn item-btn btn-primary display-4" target="_self">
+					<a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pId="@item.Id" class="btn item-btn btn-primary display-4" target="_self">
 						<span class="mbrib-cart-add mbr-iconfont mbr-iconfont-btn"></span>Add to cart&nbsp;
 					</a>
 				</div>
@@ -20,3 +21,5 @@
 		</div>
 	}
 </div>
+
+	
