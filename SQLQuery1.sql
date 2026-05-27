@@ -12,3 +12,5 @@ CREATE TABLE Products
     IsTrendingProduct bit
 );
 DROP TABLE Products;
+USE CoffeeShopDb
+GO

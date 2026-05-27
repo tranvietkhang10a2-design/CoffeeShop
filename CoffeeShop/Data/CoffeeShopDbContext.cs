@@ -14,6 +14,8 @@ public class CoffeeShopDbContext : DbContext
     }
     public DbSet<Product> Products { get; set; }
     public DbSet<ShoppingCartItem> ShoppingCartItem { get; set; }
+    public DbSet<Order> Order { get; set; }
+    public DbSet<OrderDetail> OrderDetail { get; set; }
     //seed data
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
