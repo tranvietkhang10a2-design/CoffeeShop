@@ -14,3 +14,6 @@ CREATE TABLE Products
 DROP TABLE Products;
 USE CoffeeShopDb
 GO
+UPDATE Products
+SET IsTrendingProduct = 1
+WHERE id IN (1, 2, 5);

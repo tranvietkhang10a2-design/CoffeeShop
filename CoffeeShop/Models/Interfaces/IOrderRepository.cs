@@ -1,4 +1,4 @@
-﻿
+﻿using CoffeeShop.Models;
 namespace CoffeeShop.Models.Interfaces
 {
     public interface IOrderRepository
