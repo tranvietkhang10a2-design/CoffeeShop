@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using CoffeeShop.Models.Domain;
 using Microsoft.EntityFrameworkCore;
 using CoffeeShop.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CoffeeShop.Data;
 
-public class CoffeeShopDbContext : DbContext
+public class CoffeeShopDbContext : IdentityDbContext
 {
     public CoffeeShopDbContext(DbContextOptions<CoffeeShopDbContext> options)
         : base(options)
