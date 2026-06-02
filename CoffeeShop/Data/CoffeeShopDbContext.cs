@@ -17,6 +17,7 @@ public class CoffeeShopDbContext : IdentityDbContext
     public DbSet<ShoppingCartItem> ShoppingCartItem { get; set; }
     public DbSet<Order> Order { get; set; }
     public DbSet<OrderDetail> OrderDetail { get; set; }
+    public DbSet<Contact> Contact { get; set; }
     //seed data
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
