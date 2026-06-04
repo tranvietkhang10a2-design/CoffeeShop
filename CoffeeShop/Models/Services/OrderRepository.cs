@@ -1,7 +1,7 @@
 ﻿using CoffeeShop.Models.Interfaces;
 using CoffeeShop.Data;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
 namespace CoffeeShop.Models.Services
 {
     public class OrderRepository : IOrderRepository
@@ -32,6 +32,14 @@ namespace CoffeeShop.Models.Services
             dbContext.Order.Add(order);
             dbContext.SaveChanges();
         }
-
+        public IEnumerable<Order> GetOrdersByUser(string userId)
+        {
+            return dbContext.Order
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Product)
+                .Where(o => o.UserId == userId)
+                .OrderByDescending(o => o.OrderPlaced)
+                .ToList();
+        }
     }
 }

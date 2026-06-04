@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CoffeeShop.Models.Order>
+@{
+    int stt = 1;
+}
+<div class="container mt-4">
+
+    <h2 class="mb-4">List your orders</h2>
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Stt</th>
+                <th>Time order</th>
+                <th>Detail</th>
+                <th>Shipping Address</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@stt</td>
+                    <td>
+                        @order.OrderPlaced.ToString("dd/MM/yyyy h:mm:ss tt")
+                    </td>
+                    <td>
+                        @foreach (var item in order.OrderDetails)
+                        {
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="@item.Product.ImgUrl" style="width:120px;height:70px;object-fit:fill;">
+                                <span class="ms-2">
+                                    @item.Quantity x @item.Product.Name x @item.Price
+                                </span>
+                            </div>
+                            
+                        }
+                    </td>
+                    <td>
+                        @order.Address
+                    </td>
+                    <td>
+                        @order.OrderTotal
+                    </td>
+                </tr>
+                stt++;
+            }
+        </tbody>
+    </table>
+</div>
